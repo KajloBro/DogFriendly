@@ -8,7 +8,7 @@ function dump_accom() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r);
+    fetch($r, 'objects.php?section=accomm');
 }
 
 function dump_beach() {
@@ -19,7 +19,7 @@ function dump_beach() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r);
+    fetch($r, 'objects.php?section=beach');
 }
 
 function dump_beauty() {
@@ -30,7 +30,7 @@ function dump_beauty() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r);
+    fetch($r, 'objects.php?section=beauty');
 }
 
 function dump_medicine() {
@@ -41,7 +41,7 @@ function dump_medicine() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r);
+    fetch($r, 'objects.php?section=medicine');
 }
 
 function dump_restaurant() {
@@ -52,7 +52,7 @@ function dump_restaurant() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r);
+    fetch($r, 'objects.php?section=restaurant');
 }
 
 function dump_shopping() {
@@ -63,7 +63,7 @@ function dump_shopping() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r);
+    fetch($r, 'objects.php?section=shopping');
 }
 
 function dump_transport() {
@@ -74,13 +74,13 @@ function dump_transport() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r);
+    fetch($r, 'objects.php?section=transport');
 }
 
-function fetch($r) {
+function fetch($r,$link) {
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-4 col-xs-12 text-center wrap">
-                    <a href="#"><img class="section_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
+                    <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
                         <div class="middle">
                             <div class="object_data"><p>'.$row['name'].'</p><p>'.$row['city'].'</p></div>
                         </div>

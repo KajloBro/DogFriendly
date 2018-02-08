@@ -28,13 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/accomm_markers.php', 'img/markers/lodging-2.png', 'apartment.php?id=');
     get_markers('ajax/beach_markers.php', 'img/markers/beach_icon.png', 'beach.php?id=');
-    get_markers('ajax/beauty_markers.php', 'img/markers/highhills.png', 'beauty.php?id=');
-    get_markers('ajax/medicine_markers.php', 'img/markers/firstaid.png', 'medicine.php?id=');
-    get_markers('ajax/restaurant_markers.php', 'img/markers/restaurant.png', 'restaurant.php?id=');
-    get_markers('ajax/shopping_markers.php', 'img/markers/mall.png', 'shopping.php?id=');
-    get_markers('ajax/transport_markers.php', 'img/markers/bus.png', 'transport.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

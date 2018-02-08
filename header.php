@@ -68,15 +68,15 @@
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav">
-                                <li><a class="color" href="#">Accommodation</a></li>
-                                <li><a class="color" href="#">Beaches</a></li>
-                                <li><a class="color" href="#">Beauty</a></li> 
-                                <li><a class="color" href="#">Medicine</a></li>
-                                <li><a class="color" href="#">Restaurants</a></li>
-                                <li><a class="color" href="#">Shopping</a></li>
-                                <li><a class="color" href="#">Transport</a></li>
-                                <li><a class="color" href="#">About</a></li>
-                                <li><a class="color" href="#">Contact</a></li>
+                                <li><a class="color" href="object.php?section=accomm">Accommodation</a></li>
+                                <li><a class="color" href="object.php?section=beach">Beaches</a></li>
+                                <li><a class="color" href="object.php?section=beauty">Beauty</a></li> 
+                                <li><a class="color" href="object.php?section=medicine">Medicine</a></li>
+                                <li><a class="color" href="object.php?section=restaurant">Restaurants</a></li>
+                                <li><a class="color" href="object.php?section=shopping">Shopping</a></li>
+                                <li><a class="color" href="object.php?section=transport">Transport</a></li>
+                                <li><a class="color" href="about.php">About</a></li>
+                                <li><a class="color" href="contact.php">Contact</a></li>
                             </ul>
                         </div>
                     </nav>

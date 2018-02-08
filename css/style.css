@@ -327,6 +327,7 @@ hr {
     border-radius: 10px;
     background-color: #2ea3f2;
     padding: 10px 50px;
+    font-weight: bold;
 }
 
 .see_all_btn a:hover {
@@ -365,4 +366,13 @@ hr {
 .object_data {
     color: black;
     text-decoration: none;
+}
+
+.object_data_white {
+    color: white;
+    text-decoration: none;
+}
+
+.space {
+    margin-top: 50px;
 }

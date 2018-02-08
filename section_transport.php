@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="row_section_border">
                     <div class="text-center">
-                        <span class="see_all_btn"><a href="#">See all</a></span>
+                        <span class="see_all_btn"><a href="object.php?section=transport">See all</a></span>
                     </div>
                 </div>
             </div>
