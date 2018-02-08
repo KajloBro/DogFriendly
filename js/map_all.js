@@ -22,7 +22,7 @@ function myMap() {
                 });
                 marker.addListener('click', function(){
                     infoWindow.open(map, marker);
-                    setTimeout(function () { infoWindow.close(); }, 5000);
+                    setTimeout(function () { infoWindow.close(); }, 2000);
                 });
             });
         });

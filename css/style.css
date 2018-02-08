@@ -193,7 +193,7 @@ body {
 }
 
 #map {
-    margin-top: 20px;
+    margin-top: 50px;
     width: 100%; 
     height: 400px;
     max-width: 100%;
@@ -215,6 +215,7 @@ footer {
     background: linear-gradient(black, #2ea3f2);
     height: auto;
     padding: 30px 0;
+    margin-top: 50px;
 }
 
 .copyright {
@@ -295,4 +296,73 @@ footer {
     font-family: "fontAwesome";
     font-weight: 100;
     content: "\f16d";
+}
+
+.section_container {
+    margin-top: 50px;
+    background-color: white;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+
+.section_heading {
+    color: black;
+ }
+
+hr {
+    border: 2px solid black;
+}
+
+.row_section_border {
+    border: 4px solid black;
+    border-radius: 20px;
+    margin: 0 10px;
+}
+
+.see_all_btn a{
+    color: black;
+    text-decoration: none;
+    margin-top: 5px;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: #2ea3f2;
+    padding: 10px 50px;
+}
+
+.see_all_btn a:hover {
+    border-radius: 15px;
+}
+
+.section_pics {
+    width: 100%;
+    height: 230px;
+    max-width: 100%;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    padding: 5px 15px;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.wrap:hover .middle {
+    opacity: 1;
+}
+
+.wrap:hover .section_pics {
+    opacity: 0.3;
+}
+
+.object_data {
+    color: black;
+    text-decoration: none;
 }

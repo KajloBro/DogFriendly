@@ -19,9 +19,16 @@
         <?php include 'header.php';?>
         <?php include 'carousel.php';?>
         <?php include 'map.php';?>
-        <!-- TO DO: 7 sections -->
+        
+        <?php include 'section_accomm.php';?>
+        <?php include 'section_beach.php';?>
+        <?php include 'section_beauty.php';?>
+        <?php include 'section_medicine.php';?>
+        <?php include 'section_restaurant.php';?>
+        <?php include 'section_shopping.php';?>
+        <?php include 'section_transport.php';?>
+        
         <?php include 'footer.php';?>
-
         
         
         <script src="js/map_all.js"></script>
