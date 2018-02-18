@@ -20,13 +20,17 @@
         <?php include 'carousel.php';?>
         <?php include 'map.php';?>
         
-        <?php include 'section_accomm.php';?>
-        <?php include 'section_beach.php';?>
-        <?php include 'section_beauty.php';?>
-        <?php include 'section_medicine.php';?>
-        <?php include 'section_restaurant.php';?>
-        <?php include 'section_shopping.php';?>
-        <?php include 'section_transport.php';?>
+        <?php 
+        require 'section.php';
+        require 'php/queries_index.php';
+        dump_section('Accommodation', 'dump_accom', 'accomm');
+        dump_section('Beaches', 'dump_beach', 'beach');
+        dump_section('Beauty', 'dump_beauty', 'beauty');
+        dump_section('Medicine', 'dump_medicine', 'medicine');
+        dump_section('Restaurants', 'dump_restaurant', 'restaurant');
+        dump_section('Shopping', 'dump_shopping', 'shopping');
+        dump_section('Transport', 'dump_transport', 'transport');
+        ?>
         
         <?php include 'footer.php';?>
         

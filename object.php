@@ -19,36 +19,45 @@
         
         <?php
             include 'header.php';
+            
+            require_once 'php/queries_object.php';
             $section = $_GET["section"];
-            require 'php/queries.php';
-            switch($section) {
-                case "accomm":
-                    accomm();
+            $id = $_GET["id"];
+
+            switch ($section) {
+                case 'accomm':
+                    dump_me_accomm($id);
                     break;
-                case "beach":
-                    beach();
+                case 'beach':
+                    dump_me_beach($id);
                     break;
-                case "beauty":
-                    beauty();
+                case 'beauty':
+                    dump_me_beauty($id);
                     break;
-                case "medicine":
-                    medicine();
+                case 'medicine':
+                    dump_me_medicine($id);
                     break;
-                case "restaurant":
-                    restaurant();
+                case 'restaurant':
+                    dump_me_restaurant($id);
                     break;
-                case "shopping":
-                    shopping();
+                case 'shopping':
+                    dump_me_shopping($id);
                     break;
-                case "transport":
-                    transport();
+                case 'transport':
+                    dump_me_transport($id);
                     break;
             }
+            
             include 'footer.php';
+        
+        
+        
         ?>
         
         
         
+        
+        <script src="js/map_all.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKTa-Qr0FUtaOo_rfQD9DroegaPZ04s88&callback=myMap"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
