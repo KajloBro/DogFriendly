@@ -76,7 +76,8 @@ function print_accomm($r, $link) {
     echo '<div class="container space"><div class="row">';
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap">
-                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
+                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
+                    . 'alt="'.$row['name'].'">
                         <div class="middle">
                             <div class="object_data_white data">
                                 <p>'.$row['name'].'</p>
@@ -98,7 +99,8 @@ function print_data($r, $link) {
     echo '<div class="container space"><div class="row">';
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap">
-                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
+                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
+                    . 'alt="'.$row['name'].'">
                         <div class="middle">
                             <div class="object_data_white">
                                 <p>'.$row['name'].'</p>

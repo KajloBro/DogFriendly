@@ -15,7 +15,7 @@
     </div>
 
     <div class="item">
-        <img src="img/carousel/carousel2.png" alt="carousel1">
+        <img src="img/carousel/carousel2.png" alt="carousel2">
         <div class="carousel-caption">
             <h3 style="color: black;">Dog Friendly</h3>
             <p style="color: black;">Kontaktirajte nas</p>

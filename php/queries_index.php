@@ -79,7 +79,7 @@ function dump_transport() {
 
 function fetch($r,$link) {
     while ($row = $r->fetch_assoc()) {
-        echo '<div class="col-md-4 col-sm-4 col-xs-12 text-center wrap">
+        echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap">
                     <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
                         <div class="middle">
                             <div class="object_data"><p>'.$row['name'].'</p><p>'.$row['city'].'</p></div>
