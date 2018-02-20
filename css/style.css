@@ -344,6 +344,12 @@ hr {
     object-fit: cover;
 }
 
+@media (min-width: 776px) and (max-width: 991px) {
+    .section_pics {
+        height: 350px;
+    }
+}
+
 .middle {
   transition: .5s ease;
   opacity: 0;
@@ -407,12 +413,6 @@ hr {
     top: 0;
 }
 
-.carousel_caption {
-    color: white;
-    font-size: 32px;
-    background: rgba(0,0,0,0.2);
-}
-
 .carousel_pic {
     width: 100%;
     object-fit: cover;
@@ -420,4 +420,32 @@ hr {
 
 .accomm_carousel .carousel-inner {
     height: 400px;
+}
+
+.quote {
+    font-family: "Times New Roman", Times, serif;
+    padding-right: 50px;
+}
+
+.section_title {
+    padding-left: 100px;
+}
+
+.section_heading_at_objects {
+    margin-top: 0;
+    color: #2ea3f2;
+    font-size: 64px;
+}
+
+@media (max-width: 991px) {
+    .quote {
+        display: none;
+    }
+    .section_title {
+        padding-left: 0;
+        text-align: center;
+    }
+    .section_heading_at_objects {
+        font-size: 32px;
+    }
 }

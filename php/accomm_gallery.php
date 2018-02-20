@@ -1,5 +1,5 @@
 <?php
-function carousel($id, $pics_row){
+function carousel($id){
     global $conn;
     $main = ("SELECT path FROM accommodation_pics WHERE part='main' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
     $street = ("SELECT path FROM accommodation_pics WHERE part='street' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
@@ -33,7 +33,7 @@ function carousel($id, $pics_row){
         ?>
         <div class="item">
             <?php
-            echo '<img src="'.$path.'" alt="'.$path.'" class="carousel_pic"/>';
+            echo '<img src="'.$path.'" alt="side_pic" class="carousel_pic"/>';
             ?>
             <div class="carousel-caption">
                 <h3 class="carousel_caption"><?php echo $string; ?></h3>

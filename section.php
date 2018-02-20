@@ -1,4 +1,3 @@
-
 <?php
 function dump_section($title, $func, $url){
 ?>
