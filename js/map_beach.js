@@ -28,7 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/beach_markers.php', 'img/markers/beach_icon.png', 'beach.php?id=');
+    get_markers('json/beach_markers.php', 'img/markers/beach_icon.png', 'beach.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

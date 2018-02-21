@@ -28,7 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/medicine_markers.php', 'img/markers/firstaid.png', 'medicine.php?id=');
+    get_markers('json/medicine_markers.php', 'img/markers/firstaid.png', 'medicine.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

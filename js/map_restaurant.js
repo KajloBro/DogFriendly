@@ -28,7 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/restaurant_markers.php', 'img/markers/restaurant.png', 'restaurant.php?id=');
+    get_markers('json/restaurant_markers.php', 'img/markers/restaurant.png', 'restaurant.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

@@ -80,11 +80,12 @@ function dump_transport() {
 function fetch($r,$link) {
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-12 col-xs-12 text-center wrap">
-                    <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
-                        <div class="middle">
-                            <div class="object_data"><p>'.$row['name'].'</p><p>'.$row['city'].'</p></div>
-                        </div>
-                    </a>
+                <div class="hover_2_caption object_data text-center">'.$row['name'].' '.$row['city'].'</div>
+                <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics index_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
+                    <div class="middle">
+                        <div class="object_data"><p>'.$row['name'].'</p><p>'.$row['city'].'</p></div>
+                    </div>
+                </a>
               </div>';
     }
 }

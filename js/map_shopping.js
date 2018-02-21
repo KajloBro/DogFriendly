@@ -28,7 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/shopping_markers.php', 'img/markers/mall.png', 'shopping.php?id=');
+    get_markers('json/shopping_markers.php', 'img/markers/mall.png', 'shopping.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

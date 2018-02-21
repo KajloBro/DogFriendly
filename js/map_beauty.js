@@ -28,7 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/beauty_markers.php', 'img/markers/highhills.png', 'beauty.php?id=');
+    get_markers('json/beauty_markers.php', 'img/markers/highhills.png', 'beauty.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

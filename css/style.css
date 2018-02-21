@@ -229,7 +229,7 @@ footer {
 }
 
 .data p {
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .float_data {
@@ -345,7 +345,7 @@ hr {
 }
 
 @media (min-width: 776px) and (max-width: 991px) {
-    .section_pics {
+    .index_pics {
         height: 350px;
     }
 }
@@ -368,6 +368,12 @@ hr {
 
 .wrap:hover .section_pics {
     opacity: 0.3;
+}
+
+@media (min-width: 992px) {
+    .hover_2_caption {
+        display: none;
+    }
 }
 
 .object_data {

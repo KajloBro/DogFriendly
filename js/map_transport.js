@@ -28,7 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/transport_markers.php', 'img/markers/bus.png', 'transport.php?id=');
+    get_markers('json/transport_markers.php', 'img/markers/bus.png', 'transport.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

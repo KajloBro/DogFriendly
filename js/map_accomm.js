@@ -28,7 +28,7 @@ function myMap() {
         });
     };
     
-    get_markers('ajax/accomm_markers.php', 'img/markers/lodging-2.png', 'apartment.php?id=');
+    get_markers('json/accomm_markers.php', 'img/markers/lodging-2.png', 'apartment.php?id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({

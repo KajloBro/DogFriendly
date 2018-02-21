@@ -86,6 +86,8 @@ function print_accomm($r, $link) {
     echo '</div>';
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap space">
+                    <div class="hover_2_caption object_data_white"><p>'.$row['name'].' '.$row['city'].'</p>'
+                 . '<p>Stars: '.$row['stars'].' ('.$row['basic_bed'].' + '.$row['extra_bed'].')</p></div>
                     <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
                     . 'alt="'.$row['name'].'">
                         <div class="middle">
