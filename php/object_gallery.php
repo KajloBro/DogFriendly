@@ -10,7 +10,7 @@ function gallery($r) {
                     <?php
                     while ($row = $r->fetch_assoc()){
                         if ($row['part'] == 'main'){
-                            echo '<img src="'.$row['path'].'" alt="main_pic" class="carousel_pic"/>';
+                            echo '<img src="'.$row['path'].'.jpg" alt="main_pic" class="carousel_pic"/>';
                         }
                     }
                     ?>
@@ -43,7 +43,7 @@ function item($path) {
     ?>
     <div class="item">
         <?php
-        echo '<img src="'.$path.'" alt="side_pic" class="carousel_pic"/>';
+        echo '<img src="'.$path.'.jpg" alt="side_pic" class="carousel_pic"/>';
         ?>
     </div>
     <?php

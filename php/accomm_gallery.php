@@ -33,7 +33,7 @@ function carousel($id){
         ?>
         <div class="item">
             <?php
-            echo '<img src="'.$path.'" alt="side_pic" class="carousel_pic"/>';
+            echo '<img src="'.$path.'.jpg" alt="side_pic" class="carousel_pic"/>';
             ?>
             <div class="carousel-caption">
                 <h3 class="carousel_caption"><?php echo $string; ?></h3>
@@ -48,7 +48,7 @@ function carousel($id){
             <div class="carousel-inner">
                 <div class="item active">
                     <?php
-                    echo '<img src="'.$row_main['path'].'" alt="apartment_main_pic" class="carousel_pic"/>';
+                    echo '<img src="'.$row_main['path'].'.jpg" alt="apartment_main_pic" class="carousel_pic"/>';
                     ?>
                     <div class="carousel-caption">
                         <h3 class="carousel_caption">Visit Us</h3>

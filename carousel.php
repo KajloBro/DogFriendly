@@ -7,7 +7,7 @@
 
   <div class="carousel-inner">
     <div class="item active">
-        <img src="img/carousel/carousel1.jpg" alt="carousel1">
+        <img src="img/carousel/glavotok.jpg" alt="glavotok">
         <div class="carousel-caption">
             <h3>Dog Friendly</h3>
             <p>Sve na jednom mjestu</p>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="item">
-        <img src="img/carousel/carousel2.png" alt="carousel2">
+        <img src="img/carousel/krk_riva.jpg" alt="krktourist">
         <div class="carousel-caption">
             <h3 style="color: black;">Dog Friendly</h3>
             <p style="color: black;">Kontaktirajte nas</p>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="item">
-        <img src="img/carousel/carousel3.jpg" alt="carousel3">
+        <img src="img/carousel/krk_svjetionik.jpg" alt="dog friendly">
         <div class="carousel-caption">
             <h3>Dog Friendly</h3>
             <p>Pružite sve svojem ljubimcu</p>

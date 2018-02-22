@@ -81,7 +81,7 @@ function fetch($r,$link) {
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-12 col-xs-12 text-center wrap">
                 <div class="hover_2_caption object_data text-center">'.$row['name'].' '.$row['city'].'</div>
-                <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics index_pics" src="'.$row['path'].'" alt="'.$row['name'].'">
+                <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics index_pics" src="'.$row['path'].'.jpg" alt="'.$row['name'].'.jpg">
                     <div class="middle">
                         <div class="object_data"><p>'.$row['name'].'</p><p>'.$row['city'].'</p></div>
                     </div>
