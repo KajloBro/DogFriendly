@@ -13,12 +13,13 @@
                                              onmouseout="this.src='img/project/logo.png'"/></a>
             </div>
             <div class="col-md-3 data">
-                <p class="text-center">Turistička agencija Molnar-Gabor</p>
-                <p><span class="float_data2">Tel:</span> <span class="float_data">+385 51/880-186</span></p>
-                <p><span class="float_data2">E-mail:</span><span class="float_data">
-                        <a href="mailto:info@krktourist.com">info@krktourist.com</a></span></p>
-                <p><span class="float_data2">Web:</span><span class="float_data">
-                        <a href="http://www.krktourist.com">www.krktourist.com</a></span></p>
+                <p class="contact_in_footer">Contact</p>
+                <p class="info_in_footer">ID CODE: HR-AB-51-040227918</p>
+                <p class="info_in_footer">Milohnići BB, 51 500 Krk, HR</p>
+                <p class="info_in_footer">Tel: +385/51 880-186</p>
+                <p class="info_in_footer">GSM Mob: +385/91 203-0555</p>
+                <p class="info_in_footer">Web: http://www.krktourist.com</p>
+                <p class="info_in_footer">E-mail: info@krktourist.com</p>
             </div>
             <div class="col-md-6 social_logos">
                 <div class="col-md-6 fb_logo text-center"><a href="http://www.facebook.com/krktouristofficial">&nbsp;</a></div>
@@ -27,7 +28,7 @@
         </div>
         <div class="row">
             <div class="text-center copyright">
-                Copyright &copy; Dominik Barjaktarić
+                Copyright &copy; 2018 Travel agency Molnar-Gabor d.o.o., all rights reserved
             </div>
         </div>
     </div>

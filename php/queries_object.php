@@ -3,7 +3,7 @@
 function dump_me_accomm($id) {
     global $conn;
     $data = ("SELECT a.id, a.name AS name, a.stars, a.basic_bed, a.extra_bed, "
-            . "l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.hr "
+            . "l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
             . "FROM accommodation AS a "
             . "JOIN address as l ON a.fk_address = l.id "
             . "JOIN city AS c ON l.fk_city = c.zip "
@@ -16,7 +16,7 @@ function dump_me_accomm($id) {
 
 function dump_me_beach($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.hr "
+    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
             . "FROM beach AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN beach_desc AS d ON d.id = a.id "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM beach_pics WHERE fk_beach = $id");
@@ -28,7 +28,7 @@ function dump_me_beach($id) {
 
 function dump_me_beauty($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.hr "
+    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
             . "FROM beauty AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN beauty_desc AS d ON d.id = a.id "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM beauty_pics WHERE fk_beauty = $id");
@@ -40,7 +40,7 @@ function dump_me_beauty($id) {
 
 function dump_me_medicine($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.hr "
+    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
             . "FROM medicine AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN medicine_desc AS d ON d.id = a.id "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM medicine_pics WHERE fk_medicine = $id");
@@ -52,7 +52,7 @@ function dump_me_medicine($id) {
 
 function dump_me_restaurant($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.hr "
+    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
             . "FROM restaurant AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN restaurant_desc AS d ON d.id = a.id "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM restaurant_pics WHERE fk_restaurant = $id");
@@ -64,7 +64,7 @@ function dump_me_restaurant($id) {
 
 function dump_me_shopping($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.hr "
+    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
             . "FROM shopping AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN shopping_desc AS d ON d.id = a.id "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM shopping_pics WHERE fk_shopping = $id");
@@ -76,7 +76,7 @@ function dump_me_shopping($id) {
 
 function dump_me_transport($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.hr "
+    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
             . "FROM transport AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN transport_desc AS d ON d.id = a.id "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM transport_pics WHERE fk_transport = $id");
@@ -103,7 +103,7 @@ function fetch_me_accomm($row){
         echo '<div class="row space">';
             //////////////////////////////////////////DESCRIPTION//////////////////////////////////////////
             echo '<div class="col-md-8 col-xs-12">';
-                echo '<div>'.$row['hr'].'</div>';
+                echo '<div>'.$row['en'].'</div>';
             echo '</div>';
             ////////////////////////////////////////////ADDRESS////////////////////////////////////////////
             echo '<div class="col-md-4 col-xs-12 text-center object_address">';
@@ -137,10 +137,10 @@ function fetch_me_data($row, $pics_res){
     echo '<div class="container space">';
         //////////////////////////////////////////////TITLE////////////////////////////////////////////////
         echo '<div class="row text-center">';
-            echo '<h2 class="object_title">'.$row['name'].'</h2>';
+            echo '<h2 class="object_title gimme_some_margin_bot">'.$row['name'].'</h2>';
         echo '</div>';
         echo '<div class="col-md-8 col-xs-12">';
-            echo '<div>'.$row['hr'].'</div>';
+            echo '<div>'.$row['en'].'</div>';
         echo '</div>';
         echo '<div class="col-md-4 col-xs-12 text-center object_address">';
             //////////////////////////////////////////////ADDRESS///////////////////////////////////////////

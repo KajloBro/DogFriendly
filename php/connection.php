@@ -1,16 +1,16 @@
 <?php
 
 // bytehost server
-//$servername = "sql300.byethost18.com";
-//$username = "b18_21658726";
-//$password = "KzXn5QmPh";
-//$tablename = "b18_21658726_dog_friendly";
+$servername = "sql300.byethost18.com";
+$username = "b18_21658726";
+$password = "KzXn5QmPh";
+$tablename = "b18_21658726_dog_friendly";
 
 // local server (WAMP)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$tablename = "dog_friendly";
+//$servername = "localhost";
+//$username = "root";
+//$password = "";
+//$tablename = "dog_friendly";
 
 // server
 //$servername = "";

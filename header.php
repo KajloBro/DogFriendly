@@ -64,7 +64,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span> 
                             </button>
-                            <a class="navbar-brand color" href="index.php">Home</a>
+                         <a class="navbar-brand color home_button" href="index.php">Home</a>
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav">
@@ -77,6 +77,8 @@
                                 <li><a class="color" href="objects.php?section=transport">Transport</a></li>
                                 <li><a class="color" href="about.php">About</a></li>
                                 <li><a class="color" href="contact.php">Contact</a></li>
+                                <li><a class="color" href="general_terms.php">Terms</a></li>
+                                <li><a class="color" href="useful_info.php">Info</a></li>
                             </ul>
                         </div>
                     </nav>

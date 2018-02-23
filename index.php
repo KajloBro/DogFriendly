@@ -19,6 +19,7 @@
         <?php include 'header.php';?>
         <?php include 'carousel.php';?>
         <?php include 'map.php';?>
+        <?php include 'read_more.php';?>
         
         <?php 
         require 'section.php';
