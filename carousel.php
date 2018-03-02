@@ -5,7 +5,7 @@
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
 
-  <div class="carousel-inner">
+  <div class="carousel-inner carousel_home">
     <div class="item active">
         <img src="img/carousel/glavotok.jpg" alt="glavotok">
         <div class="carousel-caption">

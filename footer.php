@@ -1,12 +1,9 @@
 <footer>
     
-    <div class="container">
+    <div class="container" style="background-color: transparent;">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="margin_footer"></div>
-            </div>
         </div>
-        <div class="row display_on_pc">
+        <div class="row display_on_pc space_bot">
             <div class="col-md-3">
                 <a href="index.php"><img class="logo" src="img/project/logo.png" alt="dog friendly"
                                              onmouseover="this.src='img/project/logo_hover.png'" 
@@ -26,12 +23,39 @@
                 <div class="col-md-6 insta_logo text-center"><a href="http://darksta.com/krktourist/6549245780">&nbsp;</a></div>
             </div>
         </div>
+    </div>
+    <div class="row_footer_line">
+        <div class="container">
+            <div class="">
+                <div class="terms col-md-2 col-xs-12 text-center">
+                        <a href="general_terms.php">General Terms</a>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="display_on_pc">
+                    <div class="lang_footer col-md-1 col-xs-2 text-center">
+                            <a href="#">Hrvatski</a>
+                    </div>
+                    <div class="lang_footer col-md-1 col-xs-2 text-center">
+                            <a href="#">English</a>
+                    </div>
+                    <div class="lang_footer col-md-1 col-xs-2 text-center">
+                            <a href="#">Magyar</a>
+                    </div>
+                    <div class="lang_footer last_lang col-md-1 col-xs-2 text-center">
+                            <a href="#">Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="text-center copyright">
                 Copyright &copy; 2018 Travel agency Molnar-Gabor d.o.o., all rights reserved
             </div>
         </div>
     </div>
+    
     
 </footer>
 

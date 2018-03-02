@@ -2,12 +2,13 @@
 
 function dump_me_accomm($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, a.stars, a.basic_bed, a.extra_bed, "
-            . "l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
+    $data = ("SELECT a.id, a.name AS name, a.stars, a.basic_bed, a.extra_bed, a.rooms, a.wifi, a.parking, a.grill, a.pool, a.ac, "
+            . "a.tv, a.dist_beach, a.dist_shop, a.dist_rest, a.dog_food, a.dog_bowl, a.dog_bed, "
+            . "l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip "
             . "FROM accommodation AS a "
             . "JOIN address as l ON a.fk_address = l.id "
             . "JOIN city AS c ON l.fk_city = c.zip "
-            . "JOIN accommodation_desc AS d ON d.id = a.id WHERE a.id = $id");
+            . "WHERE a.id = $id");
     
     $r = $conn->query($data);
     $row = $r->fetch_assoc();
@@ -23,7 +24,7 @@ function dump_me_beach($id) {
     $r = $conn->query($data);
     $pics_res = $conn->query($pics);
     $row = $r->fetch_assoc();
-    fetch_me_data($row, $pics_res);
+    fetch_me_beach($row, $pics_res);
 }
 
 function dump_me_beauty($id) {
@@ -88,49 +89,110 @@ function dump_me_transport($id) {
 
 function fetch_me_accomm($row){
     echo '<div class="container space">';
-        ///////////////////////////////////////////////TITLE
+        ///////////////////////////////////////////////TITLE///////////////////////////////////////////////
         echo '<div class="row text-center">';
-            echo '<h2 class="object_title">'.$row['name'].'</h2>';
+            echo '<h2 class="object_title">'.$row['name'].', '.$row['address'].' - '.$row['city'].' - '.$row['zip'].'</h2>';
         echo '</div>';
-        echo '<div class="row text-center">';
-            for ($i = 0; $i < $row['stars']; $i++) {
-                echo '<span class="object_stars"></span>';
-            }
-        echo '</div>';
-        echo '<div class="row object_beds text-center">';
-            echo '( '.$row['basic_bed'].' / '.$row['extra_bed'].' )';
-        echo '</div>';
-        echo '<div class="row space">';
-            //////////////////////////////////////////DESCRIPTION//////////////////////////////////////////
-            echo '<div class="col-md-8 col-xs-12">';
-                echo '<div>'.$row['en'].'</div>';
-            echo '</div>';
-            ////////////////////////////////////////////ADDRESS////////////////////////////////////////////
-            echo '<div class="col-md-4 col-xs-12 text-center object_address">';
-                echo '<div class="row">';
-                    echo '<div>'.$row['address'].'</div>';
-                echo '</div>';
-                echo '<div class="row">';
-                    echo '<div>'.$row['city'].'</div>';
-                echo '</div>';
-                echo '<div class="row">';
-                    echo '<div>'.$row['zip'].'</div>';
+        ///////////////////////////////////////ROW 4 beds, rooms 'n' stars/////////////////////////////////
+        echo '<div class="row text-center space">';
+            echo '<div class="col-md-4 col-xs-12">';
+                echo '<div class="object_beds">';
+                    echo 'Person: '.$row['basic_bed'].' + '.$row['extra_bed'].'';
                 echo '</div>';
             echo '</div>';
+            echo '<div class="col-md-4 col-xs-12">';
+                echo '<div class="object_beds">';
+                    echo 'Rooms: '.$row['rooms'].'';
+                echo '</div>';
+            echo '</div>';
+            echo '<div class="col-md-4 col-xs-12">';
+                for ($i = 0; $i < $row['stars']; $i++) {
+                    echo '<span class="object_stars"></span>';
+                }
+                for ($i = 0; $i < (5 - $row['stars']); $i++) {
+                    echo '<span class="object_empty_stars"></span>';
+                }
+            echo '</div>';
         echo '</div>';
-        echo '<div class="row">';
+            //////////////////////////////////////////booleans///////////////////////////////////////
+        echo '<div class="row attributes space">';
+            echo '<div class="col-md-3 col-xs-12 radios">';
+                if ($row['parking'] == 1){echo '<p class="parking parking1">Free Parking</p>';}
+                else {echo '<p class="parking parking0">Free Parking</p>';}
+                if ($row['grill'] == 1){echo '<p class="grill grill1">Grill</p>';}
+                else {echo '<p class="grill grill0">Grill</p>';}
+                if ($row['wifi'] == 1){echo '<p class="wifi wifi1">Wi-Fi</p>';}
+                else {echo '<p class="wifi wifi0">Wi-Fi</p>';}
+            echo '</div>';
+            echo '<div class="col-md-3 col-xs-12 radios">';
+                if ($row['pool'] == 1){echo '<p class="pool pool1">Pool</p>';}
+                else {echo '<p class="pool pool0">Pool</p>';}
+                if ($row['ac'] == 1){echo '<p class="ac ac1">Air-Condition</p>';}
+                else {echo '<p class="ac ac0">Air-Condition</p>';}
+                if ($row['tv'] == 1){echo '<p class="tv tv1">TV</p>';}
+                else {echo '<p class="tv tv0">TV</p>';}
+            echo '</div>';
+            echo '<div class="col-md-3 col-xs-12 radios">';
+                if ($row['dog_food'] == 1){echo '<p class="dog_food dog_food1">Dog Food</p>';}
+                else {echo '<p class="dog_food dog_food0">Dog Food</p>';}
+                if ($row['dog_bowl'] == 1){echo '<p class="dog_bowl dog_bowl1">Dog Bowl(s)</p>';}
+                else {echo '<p class="dog_bowl dog_bowl0">Dog Bowl(s)</p>';}
+                if ($row['dog_bed'] == 1){echo '<p class="dog_bed dog_bed1">Dog Bed</p>';}
+                else {echo '<p class="dog_bed dog_bed0">Dog Bed</p>';}
+            echo '</div>';
+            echo '<div class="col-md-3 col-xs-12 radios">';
+                echo '<p class="dist_beach">Beach - '.$row['dist_beach'].' m</p>';
+                echo '<p class="dist_shop">Shop - '.$row['dist_shop'].' m</p>';
+                echo '<p class="dist_rest">Restaurant - '.$row['dist_rest'].' m</p>';
+            echo '</div>';
+        echo '</div>';
             ////////////////////////////////////////////CAROUSEL///////////////////////////////////////////
             echo '<div class="col-md-8 col-xs-12 object_carousel">';
                 require_once 'php/accomm_gallery.php';
                 carousel($row['id']);
             echo '</div>';
             //////////////////////////////////////////////MAP//////////////////////////////////////////////
-            echo '<div class="col-md-4 col-xs-12 object_map">';
+            echo '<div class="col-md-4 col-xs-12 space space_bot">';
                 echo '<div id="map"></div>';
             echo '</div>';
         echo '</div>';
     echo '</div>';
-    //script for map
+    echo '<div class="container">';
+        //////////////////////////////////////////////MODALS////////////////////////////////////////////////
+    include 'php/accomm_modal.php';
+    echo '</div>';
+        //////////////////////////////////////////////ACCOMM////////////////////////////////////////////////
+    echo '<hr class="my_custom_line">';
+    echo '<hr class="my_custom_line space_bot">';
+    echo '<div class="container">';
+    echo '<h3 class="object_title" style="padding-left: 40px;">Accommodation</h3>';
+    echo '<div class="space_bot"></div>';
+    global $conn;
+    $sql = ("SELECT a.id, a.name AS name, a.stars, a.basic_bed, a.extra_bed, p.path, l.fk_city, c.name AS city FROM accommodation_pics AS p "
+            . "JOIN accommodation AS a ON p.fk_accomm = a.id AND p.part = 'main' "
+            . "JOIN address as l ON a.fk_address = l.id "
+            . "JOIN city AS c ON l.fk_city = c.zip ");
+    $r = $conn->query($sql);
+        while ($row = $r->fetch_assoc()) {
+        echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap space_bot">
+                    <div class="hover_2_caption object_data_black"><p>'.$row['name'].' '.$row['city'].'</p>'
+                 . '<p>Stars: '.$row['stars'].' ('.$row['basic_bed'].' + '.$row['extra_bed'].')</p></div>
+                    <a href="object.php?section=accomm&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
+                    . 'alt="'.$row['name'].'">
+                        <div class="middle">
+                            <div class="object_data_black data">
+                                <p>'.$row['name'].'</p>
+                                <p>'.$row['city'].'</p>
+                                <p>Stars: '.$row['stars'].'</p>
+                                <p>Basic bed: '.$row['basic_bed'].'</p>
+                                <p>Extra bed: '.$row['extra_bed'].'</p>
+                            </div>
+                        </div>
+                    </a>
+              </div>';
+    }
+    echo '</div>';
+    
 }
 
 function fetch_me_data($row, $pics_res){
@@ -138,9 +200,6 @@ function fetch_me_data($row, $pics_res){
         //////////////////////////////////////////////TITLE////////////////////////////////////////////////
         echo '<div class="row text-center">';
             echo '<h2 class="object_title gimme_some_margin_bot">'.$row['name'].'</h2>';
-        echo '</div>';
-        echo '<div class="col-md-8 col-xs-12">';
-            echo '<div>'.$row['en'].'</div>';
         echo '</div>';
         echo '<div class="col-md-4 col-xs-12 text-center object_address">';
             //////////////////////////////////////////////ADDRESS///////////////////////////////////////////
@@ -168,3 +227,29 @@ function fetch_me_data($row, $pics_res){
     echo '</div>';
     //TO DO: skripta za mapu
 }
+
+function fetch_me_beach($row, $pics_res) {
+    echo '<div class="container space">';
+        //////////////////////////////////////////////TITLE////////////////////////////////////////////////
+        echo '<div class="row text-center">';
+            echo '<h2 class="object_title gimme_some_margin_bot">'.$row['name'].'</h2>';
+        echo '</div>';
+        echo '<div class="col-xs-12">';
+            echo '<div>'.$row['en'].'</div>';
+        echo '</div>';
+        echo '<div class="row">';
+            ////////////////////////////////////////////CAROUSEL///////////////////////////////////////////
+            echo '<div class="col-md-8 col-xs-12 object_carousel">';
+                require_once 'php/object_gallery.php';
+                gallery($pics_res);
+            echo '</div>';
+            //////////////////////////////////////////////MAP//////////////////////////////////////////////
+            echo '<div class="col-md-4 col-xs-12 object_map">';
+                echo '<div id="map"></div>';
+            echo '</div>';
+        echo '</div>';
+    echo '</div>';
+    //TO DO: skripta za mapu
+}
+
+

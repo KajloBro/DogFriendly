@@ -1,5 +1,5 @@
 <?php
-function carousel($id){
+    function carousel($id){  
     global $conn;
     $main = ("SELECT path FROM accommodation_pics WHERE part='main' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
     $street = ("SELECT path FROM accommodation_pics WHERE part='street' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
@@ -10,6 +10,7 @@ function carousel($id){
     $bedroom = ("SELECT path FROM accommodation_pics WHERE part='bedroom' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
     $bathroom = ("SELECT path FROM accommodation_pics WHERE part='bathroom' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
     $diningroom = ("SELECT path FROM accommodation_pics WHERE part='diningroom' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
+    $pool = ("SELECT path FROM accommodation_pics WHERE part='pool' AND fk_accomm = $id ORDER BY rand() LIMIT 1");
     $r_main = $conn->query($main);
     $row_main = $r_main->fetch_assoc();
     $r_street = $conn->query($street);
@@ -28,12 +29,14 @@ function carousel($id){
     $row_bathroom = $r_bathroom->fetch_assoc();
     $r_diningroom = $conn->query($diningroom);
     $row_diningroom = $r_diningroom->fetch_assoc();
+    $r_pool = $conn->query($pool);
+    $row_pool = $r_pool->fetch_assoc();
     
     function item($path, $string) {
         ?>
         <div class="item">
             <?php
-            echo '<img src="'.$path.'.jpg" alt="side_pic" class="carousel_pic"/>';
+            echo '<img src="'.$path.'" alt="side_pic" class="carousel_pic"/>';
             ?>
             <div class="carousel-caption">
                 <h3 class="carousel_caption"><?php echo $string; ?></h3>
@@ -48,7 +51,7 @@ function carousel($id){
             <div class="carousel-inner">
                 <div class="item active">
                     <?php
-                    echo '<img src="'.$row_main['path'].'.jpg" alt="apartment_main_pic" class="carousel_pic"/>';
+                    echo '<img src="'.$row_main['path'].'" alt="apartment_main_pic" class="carousel_pic"/>';
                     ?>
                     <div class="carousel-caption">
                         <h3 class="carousel_caption">Visit Us</h3>
@@ -63,19 +66,22 @@ function carousel($id){
                 if ($row_bedroom['path'] != '') {item($row_bedroom['path'], "Bedroom");}
                 if ($row_bathroom['path'] != '') {item($row_bathroom['path'], "Bathroom");}
                 if ($row_diningroom['path'] != '') {item($row_diningroom['path'], "Dining Room");}
+                if ($row_pool['path'] != '') {item($row_pool['path'], "Pool");}
             ?>
 
             </div>
 
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background: none;">
               <span class="glyphicon glyphicon-chevron-left"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background: none;">
               <span class="glyphicon glyphicon-chevron-right"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
     </div>
+    
 <?php
 }
+

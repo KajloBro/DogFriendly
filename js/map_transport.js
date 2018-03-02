@@ -38,7 +38,7 @@ function myMap() {
     });
     var infoWindow = new google.maps.InfoWindow({
         content: '<a class="normal_text" href="http://www.krktourist.com">\n\
-                  <img src="img/project/official_logo.png" alt="Malnar-Gabor" style="width:150px"/></a>'
+                  <img src="img/project/logo_with_footer.png" alt="Malnar-Gabor" style="width:150px"/></a>'
     });
     marker.addListener('click', function(){
         infoWindow.open(map, marker);

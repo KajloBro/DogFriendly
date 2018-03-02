@@ -3,12 +3,12 @@
 function dump_accom() {
     global $conn;
     $dump1 = ("SELECT a.id, a.name AS name, p.path, l.fk_city, c.name AS city FROM accommodation_pics AS p "
-            . "JOIN accommodation AS a ON p.fk_accomm = a.id AND p.part = 'main' "
+            . "JOIN accommodation AS a ON p.fk_accomm = a.id AND p.part = 'main' AND p.size = 'small' "
             . "JOIN address as l ON a.fk_address = l.id "
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r, 'objects.php?section=accomm');
+    fetch($r, 'object.php?section=accomm');
 }
 
 function dump_beach() {
@@ -19,7 +19,7 @@ function dump_beach() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r, 'objects.php?section=beach');
+    fetch($r, 'object.php?section=beach');
 }
 
 function dump_beauty() {
@@ -30,7 +30,7 @@ function dump_beauty() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r, 'objects.php?section=beauty');
+    fetch($r, 'object.php?section=beauty');
 }
 
 function dump_medicine() {
@@ -41,7 +41,7 @@ function dump_medicine() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r, 'objects.php?section=medicine');
+    fetch($r, 'object.php?section=medicine');
 }
 
 function dump_restaurant() {
@@ -52,7 +52,7 @@ function dump_restaurant() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r, 'objects.php?section=restaurant');
+    fetch($r, 'object.php?section=restaurant');
 }
 
 function dump_shopping() {
@@ -63,7 +63,7 @@ function dump_shopping() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r, 'objects.php?section=shopping');
+    fetch($r, 'object.php?section=shopping');
 }
 
 function dump_transport() {
@@ -74,14 +74,14 @@ function dump_transport() {
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");
     $r = $conn->query($dump1);
-    fetch($r, 'objects.php?section=transport');
+    fetch($r, 'object.php?section=transport');
 }
 
 function fetch($r,$link) {
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-12 col-xs-12 text-center wrap">
                 <div class="hover_2_caption object_data text-center">'.$row['name'].' '.$row['city'].'</div>
-                <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics index_pics" src="'.$row['path'].'.jpg" alt="'.$row['name'].'.jpg">
+                <a href="'.$link.'&id='.$row['id'].'"><img class="section_pics index_pics" src="'.$row['path'].'" alt="'.$row['name'].'.jpg">
                     <div class="middle">
                         <div class="object_data"><p>'.$row['name'].'</p><p>'.$row['city'].'</p></div>
                     </div>

@@ -1,18 +1,29 @@
 body {
     box-sizing: border-box;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
 }
 
 .bg_upper_header {
     background-color: black;
     height: auto;
-    margin: 5px 0;
+    padding: 5px 0;
 }
 
 .text_upper_header {
     color: white;
+}
+
+.links_black a {
+    text-decoration: none;
+    color: black;
+}
+
+.links_black a::before {
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
 }
 
 .links a {
@@ -45,12 +56,40 @@ body {
     content: "\f2b6";
 }
 
-.fb a::before {
+.mail_read_more a::before {
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+    content: "\f2b6";
+    color: black;
+}
+
+.fb_read_more a::before {
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
     content: "\f230";
+    color: black;
+}
+
+.insta_read_more a::before {
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+    content: "\f16d";
+    color: black;
+}
+
+.contact a::before {
+    content: "\f2b9";
 }
 
 .insta a::before {
     content: "\f16d";
+}
+
+.fb a::before {
+    content:"\f230";
 }
 
 .flags {
@@ -88,6 +127,12 @@ body {
 .logo {
     width: 100%;
     height: auto;
+}
+
+.read_more_line {
+    border: 5px solid #2ea3f2;
+    margin: 0 0;
+    padding: 0 0;
 }
 
 .height_align {
@@ -131,7 +176,7 @@ body {
 }
 
 .navbar-custom .navbar-nav > li > a {
-    color:#fff;
+    color: white;
     font-weight: bold;
     font-size: 12px;
 }
@@ -140,7 +185,7 @@ body {
 .navbar-custom .navbar-nav > li > a:focus,
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus,
-.navbar-custom .navbar-nav > .open >a {
+.navbar-custom .navbar-nav > .open > a {
     text-decoration: none;
     background-color: #2ea3f2;
     border-radius: 10px;
@@ -193,40 +238,64 @@ body {
   }
 }
 
-@media (min-width: 1200px) {
-    .home_button {
-        display: none;
-    }
+#myCarousel {
+    margin-bottom: 50px;
 }
 
+.row_bg_blue {
+    padding: 70px 0;
+    background-color: #dce6eb;
+}
+
+
 #map {
-    margin-top: 50px;
     width: 100%; 
     height: 400px;
     max-width: 100%;
 }    
 
+.bg_light {
+    background-color: #dce6eb;
+}
+
+.bg_dark {
+    background-color: #2ea3f2;
+}
+
 .height_control {
-    height: 100px;
+    height: 95px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .normal_text {
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
 .normal_text:hover {
     text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.normal_text_black {
+    text-decoration: none;
     color: black;
     font-weight: bold;
 }
 
+.normal_text_black:hover {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+
 footer {
-    background: linear-gradient(black, #2ea3f2);
+    background: #2ea3f2;
     height: auto;
-    padding: 30px 0;
-    margin-top: 50px;
+    padding: 50px 0;
 }
 
 .copyright {
@@ -252,20 +321,20 @@ footer {
 
 .fb_logo a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .fb_logo a:hover{
-    color: black;
+    color: #222222;
 }
 
 .insta_logo a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .insta_logo a:hover {
-    color: black;
+    color: #222222;
 }
 
 .fb_logo a::before {
@@ -283,8 +352,8 @@ footer {
 }
 
 .section_container {
-    margin-top: 50px;
-    background-color: white;
+    margin-bottom: 50px;
+    background-color: #2ea3f2;
     border: 0px solid transparent;
     border-radius: 20px;
 }
@@ -293,12 +362,21 @@ footer {
     color: black;
  }
 
+ .space_bot {
+     margin-bottom: 50px;
+ }
+ 
+ .row_footer_line {
+     background-color: #dce6eb;
+     padding: 10px 0;
+ }
+ 
 hr {
-    border: 2px solid black;
+    border: 2px solid white;
 }
 
 .row_section_border {
-    border: 4px solid black;
+    border: 4px solid white;
     border-radius: 20px;
     margin: 0 10px;
 }
@@ -307,7 +385,7 @@ hr {
     color: black;
     text-decoration: none;
     margin-top: 5px;
-    border: 5px solid black;
+    border: 5px solid white;
     border-radius: 10px;
     background-color: #2ea3f2;
     padding: 10px 50px;
@@ -351,7 +429,17 @@ hr {
 }
 
 .wrap:hover .section_pics {
-    opacity: 0.3;
+    opacity: 0.7;
+}
+
+@media (max-width: 991px) {
+    .wrap:hover .middle {
+    opacity: 0;
+}
+
+.wrap:hover .section_pics {
+    opacity: 1;
+}
 }
 
 @media (min-width: 992px) {
@@ -360,13 +448,53 @@ hr {
     }
 }
 
+.modal_title {
+    margin-bottom: 0;
+    color: #2ea3f2;
+    font-size: 16px;
+}
+
+.btn-info {
+    background-color: #2ea3f2;
+}
+
+.modal-header {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.modal_small {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.btn_padding {
+    padding: 10px;
+}
+
+.btn_but_modal {
+    margin-bottom: 20px;
+}
+
+.default_link {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+
+.mail_text p a {
+    color: black;
+    text-decoration: none;
+}
+
 .object_data {
     color: black;
     text-decoration: none;
 }
 
-.object_data_white{
-    color: white;
+.object_data_black{
+    color: black;
     text-decoration: none;
 }
 
@@ -380,18 +508,268 @@ hr {
     font-size: 32px;
 }
 
+.attributes {
+    font-size: 18px;
+}
+
+.wifi0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.wifi1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.parking0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.parking1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.grill0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.grill1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.wifi::before {
+    content:"\f09e";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.parking::before {
+    content:"\f1b9";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.grill::before {
+    content:"\f06d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.dog_food::before {
+    content:"\f1b0";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.dog_bowl::before {
+    content:"\f1b0";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.dog_bed::before {
+    content:"\f1b0";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.dog_food0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.dog_food1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.dog_bowl0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.dog_bowl1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.dog_bed0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.dog_bed1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.tv0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.tv1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.pool0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.pool1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.ac0::after {
+    content:"\f05c";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: red;
+}
+
+.ac1::after {
+    content:"\f05d";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-left: 10px;
+    color: green;
+}
+
+.pool::before {
+    content:"\f2d0";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.ac::before {
+    content:"\f2dc";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.tv::before {
+    content:"\f108";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.dist_beach::before {
+    content:"\f21a";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.dist_shop::before {
+    content:"\f07a";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+.radios {
+    padding-left: 30px;
+}
+
+.my_custom_line {
+    border: 10px solid #2ea3f2
+}
+
+.dist_rest::before {
+    content:"\f0f5";
+    font-family: "fontAwesome";
+    font-weight: 100;
+    padding-right: 10px;
+}
+
+
 .object_stars::before {
     font-size: 32px;
     font-family: "fontAwesome";
     font-weight: 100;
     content: "\f005";
-    color: #2ea3f2;
+    color: gold;
     padding: 0 3px;
     }
+    
+.object_empty_stars::before {
+    font-size: 32px;
+    font-family: "fontAwesome";
+    font-weight: 100;
+    content: "\f005";
+    color: grey;
+    padding: 0 3px;
+    }    
 
 .object_beds {
-    color: #2ea3f2;
-    font-size: 32px;
+    color: grey;
+    font-size: 24px;
 }
 
 .object_address {
@@ -443,3 +821,43 @@ hr {
 .gimme_some_margin_bot {
     margin-bottom: 20px;
 }
+
+.footer_line {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+@media (min-width: 991px) {
+    .terms {
+        border-left: 3px double #666666;
+    }
+}
+
+.terms a {
+    text-decoration: none;
+    color: #666666;
+}
+
+.lang_footer a {
+    text-decoration: none;
+    color: #666666;
+}
+
+.lang_footer a:hover {
+    color: #222222;
+}
+
+.terms a:hover {
+    color: #222222;
+}
+
+.lang_footer {
+    color: black;
+    border-left: 3px double #666666;
+}
+
+.last_lang {
+    border-right: 3px double #666666;
+}
+
+

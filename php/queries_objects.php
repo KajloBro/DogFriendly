@@ -86,12 +86,12 @@ function print_accomm($r, $link) {
     echo '</div>';
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap space">
-                    <div class="hover_2_caption object_data_white"><p>'.$row['name'].' '.$row['city'].'</p>'
+                    <div class="hover_2_caption object_data_black"><p>'.$row['name'].' '.$row['city'].'</p>'
                  . '<p>Stars: '.$row['stars'].' ('.$row['basic_bed'].' + '.$row['extra_bed'].')</p></div>
-                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'.jpg" '
+                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
                     . 'alt="'.$row['name'].'">
                         <div class="middle">
-                            <div class="object_data_white data">
+                            <div class="object_data_black data">
                                 <p>'.$row['name'].'</p>
                                 <p>'.$row['city'].'</p>
                                 <p>Stars: '.$row['stars'].'</p>
@@ -103,7 +103,8 @@ function print_accomm($r, $link) {
               </div>';
     }
     echo '</div>';
-    echo '<div class="row"><div class="col-xs-12"><div id="map"></div></div></div></div>';
+    echo '</div>';
+    echo '<div class="row space"><div class="col-xs-12"><div id="map"></div></div></div>';
     echo '<script src="js/map_'.$link.'.js"></script>';
 }
 
@@ -120,7 +121,7 @@ function print_data($r, $link, $title, $quote, $author) {
     echo '</div>';
     while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap space">
-                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'.jpg" '
+                    <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
                     . 'alt="'.$row['name'].'">
                         <div class="middle">
                             <div class="object_data_white">
@@ -132,6 +133,9 @@ function print_data($r, $link, $title, $quote, $author) {
               </div>';
     }
     echo '</div>';
+    echo '</div>';
     echo '<div class="row"><div class="col-xs-12"><div id="map"></div></div></div></div>';
     echo '<script src="js/map_'.$link.'.js"></script>';
 }
+
+

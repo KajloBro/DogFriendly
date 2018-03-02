@@ -22,6 +22,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
+                    <div class="space">
+                        <h2 class="section_heading_at_objects">General Terms</h2>
+                    </div>
                     <h2>MOLNAR - GABOR d.o.o.</h2>
                     <h2>Tourist Agency</h2>
                     <h2>HR-AB-51-040227918</h2>
@@ -226,7 +229,7 @@
                         of the Croatian National bank. When charging your credit card, the same amount is converted into your local currency 
                         according to the exchange rate of credit card associations. As a result of this conversion there is a possibility of 
                         a slight difference from the original price stated in our web site.</p>
-                    <p>At the moment it is possible to select only Croatian kuna as payment currency.</p>
+                    <p class="space_bot">At the moment it is possible to select only Croatian kuna as payment currency.</p>
                 </div>
             </div>
         </div>
