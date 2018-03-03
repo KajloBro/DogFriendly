@@ -80,6 +80,19 @@ body {
     color: black;
 }
 
+.lil_space_bot {
+    margin-bottom: 20px;
+}
+
+.beach_content {
+    padding-left: 50px;
+}
+
+.beach_headings {
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .contact a::before {
     content: "\f2b9";
 }
@@ -471,6 +484,24 @@ hr {
 
 .btn_padding {
     padding: 10px;
+}
+
+@media (min-width: 1199px) {
+    .space_limit {
+        height: 200px;
+    }
+}
+
+@media (min-width: 991px) {
+    .space_limit {
+        height: 250px;
+    }
+}
+
+@media (min-width: 776px) {
+    .space_limit {
+        height: 270px;
+    }
 }
 
 .btn_but_modal {

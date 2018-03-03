@@ -124,7 +124,7 @@ function print_data($r, $link, $title, $quote, $author) {
                     <a href="object.php?section='.$link.'&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
                     . 'alt="'.$row['name'].'">
                         <div class="middle">
-                            <div class="object_data_white">
+                            <div class="object_data_black">
                                 <p>'.$row['name'].'</p>
                                 <p>'.$row['city'].'</p>
                             </div>
@@ -134,7 +134,7 @@ function print_data($r, $link, $title, $quote, $author) {
     }
     echo '</div>';
     echo '</div>';
-    echo '<div class="row"><div class="col-xs-12"><div id="map"></div></div></div></div>';
+    echo '<div class="row space"><div class="col-xs-12"><div id="map"></div></div></div></div>';
     echo '<script src="js/map_'.$link.'.js"></script>';
 }
 

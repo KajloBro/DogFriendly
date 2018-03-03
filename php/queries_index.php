@@ -3,7 +3,7 @@
 function dump_accom() {
     global $conn;
     $dump1 = ("SELECT a.id, a.name AS name, p.path, l.fk_city, c.name AS city FROM accommodation_pics AS p "
-            . "JOIN accommodation AS a ON p.fk_accomm = a.id AND p.part = 'main' AND p.size = 'small' "
+            . "JOIN accommodation AS a ON p.fk_accomm = a.id AND p.part = 'main' "
             . "JOIN address as l ON a.fk_address = l.id "
             . "JOIN city AS c ON l.fk_city = c.zip "
             . "ORDER BY rand() LIMIT 3");

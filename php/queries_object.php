@@ -17,8 +17,13 @@ function dump_me_accomm($id) {
 
 function dump_me_beach($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
-            . "FROM beach AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN beach_desc AS d ON d.id = a.id "
+    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, "
+            . "d.id, d.en AS descript, loc.id, loc.en AS location, e.id, e.en AS equipment "
+            . "FROM beach AS a JOIN address as l ON a.fk_address = l.id "
+            . "JOIN city AS c ON l.fk_city = c.zip "
+            . "JOIN beach_desc AS d ON d.id = a.fk_desc "
+            . "JOIN beach_loc AS loc ON a.fk_loc = loc.id "
+            . "JOIN beach_equipment AS e ON a.fk_equipment = e.id "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM beach_pics WHERE fk_beach = $id");
     $r = $conn->query($data);
@@ -159,9 +164,10 @@ function fetch_me_accomm($row){
     echo '</div>';
     echo '<div class="container">';
         //////////////////////////////////////////////MODALS////////////////////////////////////////////////
-    include 'php/accomm_modal.php';
+    require 'php/modals.php';
+    accomm();
     echo '</div>';
-        //////////////////////////////////////////////ACCOMM////////////////////////////////////////////////
+    //////////////////////////////////////////////ACCOMM////////////////////////////////////////////////////
     echo '<hr class="my_custom_line">';
     echo '<hr class="my_custom_line space_bot">';
     echo '<div class="container">';
@@ -195,6 +201,79 @@ function fetch_me_accomm($row){
     
 }
 
+function fetch_me_beach($row, $pics_res) {
+    echo '<div class="container space">';
+        //////////////////////////////////////////////TITLE////////////////////////////////////////////////
+        echo '<div class="row text-center space_bot">';
+            echo '<h2 class="object_title gimme_some_margin_bot">'.$row['name'].', '.$row['city'].' - '.$row['zip'].'</h2>';
+        echo '</div>';
+        //////////////////////////////////////////////ABOUT////////////////////////////////////////////////
+        echo '<div class="col-xs-12 beach_headings lil_space_bot">';
+            echo '<div>Something you should know: </div>';
+        echo '</div>';
+        echo '<div class="col-xs-12 beach_content space_bot">';
+            echo '<div>'.$row['descript'].'</div>';
+        echo '</div>';
+        //////////////////////////////////////////////HOW TO////////////////////////////////////////////////
+        echo '<div class="col-xs-12 beach_headings lil_space_bot">';
+            echo '<div>But how we\'re gonna get there? </div>';
+        echo '</div>';
+        echo '<div class="col-xs-12 beach_content space_bot">';
+            echo '<div>'.$row['location'].'</div>';
+        echo '</div>';
+        //////////////////////////////////////////////FACILITIES////////////////////////////////////////////////
+        echo '<div class="col-xs-12 beach_headings lil_space_bot">';
+            echo '<div>What about some facilities? </div>';
+        echo '</div>';
+        echo '<div class="col-xs-12 beach_content space_bot">';
+            echo '<div>'.$row['equipment'].'</div>';
+        echo '</div>';
+        ////////////////////////////////////////////CAROUSEL///////////////////////////////////////////////
+        echo '<div class="row">';
+            echo '<div class="col-md-8 col-xs-12 object_carousel">';
+                require_once 'php/object_gallery.php';
+                gallery($pics_res);
+            echo '</div>';
+            //////////////////////////////////////////////MAP//////////////////////////////////////////////
+            echo '<div class="col-md-4 col-xs-12 object_map space">';
+                echo '<div id="map"></div>';
+            echo '</div>';
+        echo '</div>';
+    echo '</div>';
+    echo '<div class="container">';
+    ////////////////////////////////////////////MODALS///////////////////////////////////////////////
+    require 'php/modals.php';
+    beach();
+    echo '</div>';
+    //////////////////////////////////////////////BEACHES////////////////////////////////////////////
+    echo '<hr class="my_custom_line">';
+    echo '<hr class="my_custom_line space_bot">';
+    echo '<div class="container">';
+    echo '<h3 class="object_title" style="padding-left: 40px;">Beaches</h3>';
+    echo '<div class="space_bot"></div>';
+    global $conn;
+    $sql = ("SELECT a.id, a.name AS name, p.path, l.fk_city, c.name AS city FROM beach_pics AS p "
+            . "JOIN beach AS a ON p.fk_beach = a.id AND p.part = 'main' "
+            . "JOIN address as l ON a.fk_address = l.id "
+            . "JOIN city AS c ON l.fk_city = c.zip ");
+    $r = $conn->query($sql);
+        while ($row = $r->fetch_assoc()) {
+        echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap space_bot">
+                    <a href="object.php?section=beach&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
+                    . 'alt="'.$row['name'].'">
+                        <div class="middle">
+                            <div class="object_data_black">
+                                <p>'.$row['name'].'</p>
+                                <p>'.$row['city'].'</p>
+                            </div>
+                        </div>
+                    </a>
+              </div>';
+    }
+    echo '</div>';
+}
+
+
 function fetch_me_data($row, $pics_res){
     echo '<div class="container space">';
         //////////////////////////////////////////////TITLE////////////////////////////////////////////////
@@ -227,29 +306,3 @@ function fetch_me_data($row, $pics_res){
     echo '</div>';
     //TO DO: skripta za mapu
 }
-
-function fetch_me_beach($row, $pics_res) {
-    echo '<div class="container space">';
-        //////////////////////////////////////////////TITLE////////////////////////////////////////////////
-        echo '<div class="row text-center">';
-            echo '<h2 class="object_title gimme_some_margin_bot">'.$row['name'].'</h2>';
-        echo '</div>';
-        echo '<div class="col-xs-12">';
-            echo '<div>'.$row['en'].'</div>';
-        echo '</div>';
-        echo '<div class="row">';
-            ////////////////////////////////////////////CAROUSEL///////////////////////////////////////////
-            echo '<div class="col-md-8 col-xs-12 object_carousel">';
-                require_once 'php/object_gallery.php';
-                gallery($pics_res);
-            echo '</div>';
-            //////////////////////////////////////////////MAP//////////////////////////////////////////////
-            echo '<div class="col-md-4 col-xs-12 object_map">';
-                echo '<div id="map"></div>';
-            echo '</div>';
-        echo '</div>';
-    echo '</div>';
-    //TO DO: skripta za mapu
-}
-
-
