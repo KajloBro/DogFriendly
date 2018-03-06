@@ -34,14 +34,22 @@ function dump_me_beach($id) {
 
 function dump_me_beauty($id) {
     global $conn;
-    $data = ("SELECT a.id, a.name AS name, l.fk_city, l.name AS address, l.lat, l.lng, c.name AS city, c.zip, d.id, d.en "
-            . "FROM beauty AS a JOIN address as l ON a.fk_address = l.id JOIN city AS c ON l.fk_city = c.zip JOIN beauty_desc AS d ON d.id = a.id "
+    $data = ("SELECT a.id, a.name AS name, a.facebook, a.mail, a.telephone, "
+            . "d.en, l.name AS address, l.lng, l.lat, c.name AS city, c.zip "
+            . "FROM beauty AS a "
+            . "JOIN beauty_desc AS d ON a.fk_desc = d.id "
+            . "JOIN address AS l ON a.fk_address = l.id "
+            . "JOIN city AS c ON c.zip = l.fk_city "
             . "WHERE a.id = $id");
     $pics = ("SELECT * FROM beauty_pics WHERE fk_beauty = $id");
+    $hours = ("SELECT * FROM beauty_hours WHERE fk_beauty = $id");
+    $reviews = ("SELECT * FROM beauty_reviews WHERE fk_beauty = $id ORDER BY rand() LIMIT 3");
     $r = $conn->query($data);
     $pics_res = $conn->query($pics);
+    $hours_res = $conn->query($hours);
+    $reviews_res = $conn->query($reviews);
     $row = $r->fetch_assoc();
-    fetch_me_data($row, $pics_res);
+    fetch_me_beauty($row, $hours_res, $reviews_res, $pics_res);
 }
 
 function dump_me_medicine($id) {
@@ -260,6 +268,103 @@ function fetch_me_beach($row, $pics_res) {
         while ($row = $r->fetch_assoc()) {
         echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap space_bot">
                     <a href="object.php?section=beach&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
+                    . 'alt="'.$row['name'].'">
+                        <div class="middle">
+                            <div class="object_data_black">
+                                <p>'.$row['name'].'</p>
+                                <p>'.$row['city'].'</p>
+                            </div>
+                        </div>
+                    </a>
+              </div>';
+    }
+    echo '</div>';
+}
+
+function fetch_me_beauty($row, $hours_res, $reviews_res, $pics_res) {
+    echo '<div class="container space">';
+        //////////////////////////////////////////////TITLE////////////////////////////////////////////////
+        echo '<div class="row text-center space_bot">';
+            echo '<h2 class="object_title gimme_some_margin_bot">'.$row['name'].', '.$row['address'].' - '.$row['city'].' - '.$row['zip'].'</h2>';
+        echo '</div>';
+        //////////////////////////////////////////////DESCR////////////////////////////////////////////////
+        echo '<div class="row space_bot">';
+            echo $row['en'];
+        echo '</div>';
+        echo '<div class="row¸space_bot">';
+        //////////////////////////////////////////////INFO////////////////////////////////////////////////
+            echo '<div class="col-sm-6 col-xs-12 text-center links_black">';
+                echo '<p>&nbsp;</p>';
+                echo '<p>&nbsp;</p>';
+                echo '<p class="fb"><a class="normal_text_black" href="'.$row['facebook'].'">Facebook</a></p>';
+                echo '<p class="mail"><a class="normal_text_black" href="'.$row['mail'].'">nerosalonzapse@gmail.com</a></p>';
+                echo '<p class="tel">&nbsp;'.$row['telephone'].'</p>';
+                echo '<p>&nbsp;</p>';
+                echo '<p>&nbsp;</p>';
+            echo '</div>';
+            //////////////////////////////////////////////HOURS////////////////////////////////////////////////
+            echo '<div class="col-sm-6 col-xs-12 text-center">';
+                echo '<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">';
+                    echo '<p>Monday</p>';
+                    echo '<p>Tuesday</p>';
+                    echo '<p>Wednesday</p>';
+                    echo '<p>Thursday</p>';
+                    echo '<p>Friday</p>';
+                    echo '<p>Saturday</p>';
+                    echo '<p>Sonday</p>';
+                echo '</div>';
+                echo '<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">';
+                    while ($row_h = $hours_res -> fetch_assoc()) {
+                        if ($row_h['open'] == 'null') {echo '<p>Closed</p>';}
+                        else {echo '<p>'.$row_h['open'].' - '.$row_h['close'].'</p>';}
+                    }
+                echo '</div>';
+            echo '</div>';
+        echo '</div>';
+        ////////////////////////////////////////////CAROUSEL///////////////////////////////////////////////
+        echo '<div class="row">';
+            echo '<div class="col-md-8 col-xs-12 object_carousel">';
+                require_once 'php/object_gallery.php';
+                gallery($pics_res);
+            echo '</div>';
+            //////////////////////////////////////////////MAP//////////////////////////////////////////////
+            echo '<div class="col-md-4 col-xs-12 object_map space">';
+                echo '<div id="map"></div>';
+            echo '</div>';
+        echo '</div>';
+    echo '</div>';
+    echo '<div class="container">';
+    ////////////////////////////////////////////MODALS/////////////////////////////////////////////////////
+    require 'php/modals.php';
+    beauty();
+    echo '</div>';
+    echo '<div class="container">';
+    ////////////////////////////////////////////REVIEWS/////////////////////////////////////////////////////
+        echo '<div class="row">';
+            echo '<div class="small_heading space_bot">Reviews: </div>';
+            while ($row_r = $reviews_res -> fetch_assoc()) {
+                echo '<div class="col-md-3 col-md-offset-1 col-xs-12 text-center space_bot">';
+                    echo '<p>'.$row_r['en_review'].'</p>';
+                    echo '<p class="float_right">- '.$row_r['author'].':</p>';
+                echo '</div>';
+            }
+        echo '</div>';
+    echo '</div>';
+        ////////////////////////////////////////////BEAUTY/////////////////////////////////////////////////////
+    echo '<hr class="my_custom_line">';
+    echo '<hr class="my_custom_line space_bot">';
+    echo '<div class="container">';
+    echo '<h3 class="object_title" style="padding-left: 40px;">Beauty</h3>';
+    echo '<div class="space_bot"></div>';
+    global $conn;
+    $sql = ("SELECT a.id, a.name AS name, p.path, l.fk_city, c.name AS city FROM beauty_pics AS p "
+            . "JOIN beauty AS a ON p.fk_beauty = a.id AND p.part = 'main' "
+            . "JOIN address as l ON a.fk_address = l.id "
+            . "JOIN city AS c ON l.fk_city = c.zip ");
+    $r = $conn->query($sql);
+        while ($row = $r->fetch_assoc()) {
+        echo '<div class="col-md-4 col-sm-6 col-xs-12 text-center wrap space_bot">
+                    <a href="object.php?section=beauty&id='.$row['id'].'"><img class="section_pics" src="'.$row['path'].'" '
                     . 'alt="'.$row['name'].'">
                         <div class="middle">
                             <div class="object_data_black">

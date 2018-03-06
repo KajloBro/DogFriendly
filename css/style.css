@@ -15,9 +15,18 @@ body {
     color: white;
 }
 
+.float_right {
+    float: right;
+}
+
 .links_black a {
     text-decoration: none;
     color: black;
+}
+
+.small_heading {
+    font-size: 18px;
+    color: #2ea3f2;
 }
 
 .links_black a::before {
@@ -296,7 +305,6 @@ body {
 .normal_text_black {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 
 .normal_text_black:hover {
@@ -476,10 +484,27 @@ hr {
     padding-bottom: 5px;
 }
 
-.modal_small {
+.modal_big {
     width: 100%;
     height: auto;
     max-width: 100%;
+    object-fit: cover;
+}
+
+.modal_small {
+    width: 100%;
+    height: 175px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 776px) {
+    .modal_small {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: cover;
+    }
 }
 
 .btn_padding {
