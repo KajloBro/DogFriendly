@@ -1,7 +1,88 @@
 function myMap() {
     var options = {
         zoom : 10,
-        center : {lat: 45.0809, lng: 14.5926}
+        center : {lat: 45.0809, lng: 14.5926},
+        styles:
+            [
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#444444"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#f2f2f2"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 45
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "simplified"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#46bcec"
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                }
+            ]
     };
 
     var map = new google.maps.Map(document.getElementById('map'), options);
@@ -17,7 +98,7 @@ function myMap() {
                     icon: (icon)
                 });
                 var infoWindow = new google.maps.InfoWindow({
-                    content: '<a class="normal_text" href="' + link + value.id + '"><p>' + value.name + '</p>\n\
+                    content: '<a class="normal_text_black" href="' + link + value.id + '"><p>' + value.name + '</p>\n\
                             <img src="' + value.path + '" alt="' + value.name + '" style="width:150px"></a>'
                 });
                 marker.addListener('click', function(){
@@ -28,17 +109,17 @@ function myMap() {
         });
     };
     
-    get_markers('json/restaurant_markers.php', 'img/markers/restaurant.png', 'restaurant.php?id=');
+    get_markers('../json/restaurant_markers.php', '../img/markers/restaurant.png', 'object.php?section=restaurant&id=');
     
     var coords = new google.maps.LatLng(45.080136, 14.456912);
     var marker = new google.maps.Marker({
        position: coords,
        map: map,
-       icon: 'img/markers/malnar.png'
+       icon: '../img/markers/malnar.png'
     });
     var infoWindow = new google.maps.InfoWindow({
         content: '<a class="normal_text" href="http://www.krktourist.com">\n\
-                  <img src="img/project/logo_with_footer.png" alt="Malnar-Gabor" style="width:150px"/></a>'
+                  <img src="../img/project/logo_with_footer.png" alt="Malnar-Gabor" style="width:150px"/></a>'
     });
     marker.addListener('click', function(){
         infoWindow.open(map, marker);

@@ -1,8 +1,9 @@
 <?php
 
 require '../php/connection.php';
-$sql = ("SELECT p.path, a.name, a.id, l.lat, l.lng FROM shopping_pics AS p "
-        . "JOIN shopping AS a ON p.fk_shopping = a.id "
+$sql = ("SELECT p.path, n.en AS name, a.id, l.lat, l.lng FROM shopping_pics AS p "
+        . "JOIN shopping AS a ON p.fk_shopping = a.id AND p.part = 'main' "
+        . "JOIN shopping_name AS n ON a.fk_name = n.id "
         . "JOIN address AS l WHERE a.fk_address = l.id");
 $r = $conn->query($sql);
 $markers = array();
