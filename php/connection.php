@@ -3,7 +3,7 @@
 // bytehost server
 $servername = "sql300.byethost18.com";
 $username = "b18_21658726";
-$password = "KzXn5QmPh";
+$password = "**********";
 $tablename = "b18_21658726_dog_friendly";
 
 // local server (WAMP)
