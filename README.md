@@ -2,7 +2,7 @@
 Dog Friendly Web App
 
 Commercial purposes
-Never ended project for agency Molnar-Gabor
+Never finished project for tourist agency Molnar-Gabor
 
 tmp available at:
 
